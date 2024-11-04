@@ -31,7 +31,7 @@ app.post('/dados', async (req, res) => {
     const { codigo, bairro, valor } = req.body;
 
     try {
-        const [result] = await pool.query('INSERT INTO imoveis1 (codigo, bairro, valor) VALUES (?, ?, ?)', [nome, valor]);
+        const [result] = await pool.query('INSERT INTO imoveis1 (codigo, bairro, valor) VALUES (?, ?, ?)', [codigo, bairro, valor]);
         res.json({ message: 'Dados inseridos com sucesso', id: result.insertId });
     } catch (error) {
         console.error('Erro ao inserir dados:', error);
